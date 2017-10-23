@@ -9,8 +9,10 @@ import java.util.Map;
 
 public class Servidor {
 
+    // HashMap donde se guardarán las asociaciones entre los distintos clientes y el resultado de su última operación.
     public static Map<String, Double> valoresAns = new HashMap<>();
 
+    // Método estático para obtener el último resultado de un cliente, si es su primera conexión, se devolverá 0.
     public static synchronized Double getValorAns (String usuario) {
 
         Double valor = valoresAns.get(usuario);
@@ -19,6 +21,7 @@ public class Servidor {
 
     }
 
+    // Método para establecer el último resultado de un cliente.
     public static synchronized void setValorAns (String usuario, Double valor) {
 
         valoresAns.put(usuario, valor);
@@ -40,7 +43,7 @@ public class Servidor {
         // Creamos el objeto desde el cual atenderemos y aceptaremos
         // las conexiones de los clientes y abrimos los canales de
         // comunicación de entrada y salida
-        System.out.println("Esperando solicitudes...");
+        System.out.println("Servidor ejecutándose. Esperando solicitudes...");
         while (true) {
             try {
                 cliente = s.accept();
