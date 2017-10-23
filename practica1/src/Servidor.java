@@ -44,7 +44,8 @@ public class Servidor {
         while (true) {
             try {
                 cliente = s.accept();
-                new GestorPeticionThread(cliente).run();
+                System.out.println("Conexion aceptada: " + cliente.getInetAddress() + ":" + cliente.getPort());
+                new GestorPeticionThread(cliente).start();
             } catch( IOException e ) {
                 System.out.println( e );
             }
