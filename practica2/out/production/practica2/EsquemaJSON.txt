@@ -1,0 +1,6 @@
+{
+    user:"String",
+    operand1:"String",
+    operator:"String",
+    operand2:"String"
+}

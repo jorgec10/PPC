@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+
+<calculator>
+    <user>String</user>
+    <operand1>String</operand1>
+    <operator>String</operator>
+    <operand2>String</operand2>
+</calculator>
