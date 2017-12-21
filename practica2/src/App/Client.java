@@ -60,21 +60,9 @@ public class Client {
                 op1 = op1.replaceAll("\\s", "");
                 String op2 = st.nextToken();
                 op2 = op2.replaceAll("\\s", "");
-                char op = operation.charAt(operation.indexOf(op2, op1.length())-1);
-                Operator operator = Operator.addition;
-                switch (op) {
-                    case '-':
-                        operator = Operator.subtraction;
-                        break;
-                    case '*':
-                        operator = Operator.multiplication;
-                        break;
-                    case '/':
-                        operator = Operator.division;
-                        break;
-                }
+                String op = "" + operation.charAt(operation.indexOf(op2, op1.length())-1);
 
-                Calculator calculator = new Calculator(name, new Operand(op1), operator, new Operand(op2));
+                Calculator calculator = new Calculator(name, op1, op, op2);
 
                 // Preparamos para el envio
                 String content;
@@ -95,7 +83,7 @@ public class Client {
                 output.write(envio.getBytes());
 
                 // Imprimimos el resultado
-                //System.out.println("Resultado: " + input.readLine());
+                System.out.println("Resultado: " + input.readLine());
 
             }
 

@@ -46,14 +46,43 @@ public class PetitionManagerThread extends Thread{
 
                 Calculator calculator;
 
-                if (msgType.equals("xml")) {
+                if (msgType.equals("xml"))
                     calculator = XmlParser.parseXML(operation);
-                }
-                else {
+                else
                     calculator = JsonParser.parseJSON(operation);
+
+                // Aquí ya hemos recibido el mensaje y lo tenemos en calculator
+                System.out.println(calculator);
+
+                double operand1, operand2;
+                if (calculator.getOperand1().equals("ans"))
+                    operand1 = Server.getValorAns(calculator.getUser());
+                else
+                    operand1 = Double.valueOf(calculator.getOperand1());
+
+                if (calculator.getOperand2().equals("ans"))
+                    operand2 = Server.getValorAns(calculator.getUser());
+                else
+                    operand2 = Double.valueOf(calculator.getOperand2());
+
+                double answer = 0;
+                switch (calculator.getOperator()) {
+                    case "+":
+                        answer = operand1 + operand1;
+                        break;
+                    case "-":
+                        answer = operand1 - operand2;
+                    case "*":
+                        answer = operand1 * operand1;
+                        break;
+                    case "/":
+                        answer = operand1 / operand2;
+                        break;
                 }
 
-                System.out.println(calculator);
+                Server.setValorAns(calculator.getUser(), answer);
+
+                sOut.println(Double.toString(answer));
 
                 // Leemos la longitud del proximo mensaje o EXIT
                 length = sIn.readLine();

@@ -13,7 +13,7 @@ public class JsonParser {
 
     public static Calculator parseJSON(String msg) {
 
-        /*PrintWriter jsonFile = null;
+        PrintWriter jsonFile = null;
 
         try {
             jsonFile = new PrintWriter("./tmp.json");
@@ -34,9 +34,7 @@ public class JsonParser {
             r = new InputStreamReader(new FileInputStream("./tmp.json"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }*/
-
-        System.out.println("<<" + msg + ">>");
+        }
 
         Gson gson = new Gson();
         Calculator c = gson.fromJson(msg, Calculator.class);

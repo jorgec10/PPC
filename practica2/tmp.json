@@ -1,6 +1,6 @@
 {
-   user:"Jorge",
-   operand1:"1",
-   operator:"addition",
-   operand2:"1"
+   "user":"Jorge",
+   "operand1":"3",
+   "operator":"*",
+   "operand2":"6"
 }
