@@ -29,12 +29,12 @@ public class JsonParser {
             e.printStackTrace();
         }
 
-        Reader r = null;
+        /*Reader r = null;
         try {
             r = new InputStreamReader(new FileInputStream("./tmp.json"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }
+        }*/
 
         Gson gson = new Gson();
         Calculator c = gson.fromJson(msg, Calculator.class);

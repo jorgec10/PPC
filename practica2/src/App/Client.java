@@ -85,7 +85,6 @@ public class Client {
                 output.write(envio.getBytes());
 
                 // Imprimimos el resultado
-                //System.out.println("Resultado: " + input.readLine());
 
                 String length = input.readLine();
                 int msgLength = Integer.valueOf(length);
@@ -97,8 +96,14 @@ public class Client {
                 String msgType = stContent.nextToken();
                 String result = stContent.nextToken();
 
-                Response r = JsonParser.parseResponseJSON(result);
-                System.out.println("Resultado: " + r.getResult());
+                if (msgType.equals("xml")) {
+                    // ToDO
+                }
+                else {
+                    Response r = JsonParser.parseResponseJSON(result);
+                    System.out.println("Resultado: " + r.getResult());
+                }
+
 
             }
 

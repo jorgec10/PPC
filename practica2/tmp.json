@@ -1,6 +1,6 @@
 {
    "user":"Jorge",
-   "operand1":"0.9",
-   "operator":"*",
-   "operand2":"1.2"
+   "operand1":"ans",
+   "operator":"/",
+   "operand2":"2"
 }

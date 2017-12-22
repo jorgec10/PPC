@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<calculator>
+   <user>Jorge</user>
+   <operand1>1</operand1>
+   <operator>+</operator>
+   <operand2>1</operand2>
+</calculator>
