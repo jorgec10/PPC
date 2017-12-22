@@ -43,12 +43,4 @@ public class JsonParser {
 
     }
 
-    public static Response parseResponseJSON (String msg) {
-
-        Gson gson = new Gson();
-        Response r = gson.fromJson(msg, Response.class);
-        return r;
-
-    }
-
 }

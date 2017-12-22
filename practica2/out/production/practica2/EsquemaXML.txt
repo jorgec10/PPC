@@ -5,4 +5,5 @@
     <operand1>String</operand1>
     <operator>String</operator>
     <operand2>String</operand2>
+    <result>String</result>
 </calculator>

@@ -10,6 +10,7 @@ import java.util.StringTokenizer;
 
 import Calculator.*;
 import Parser.JsonParser;
+import Parser.XmlParser;
 
 /**
  * Created by Jorge Gallego Madrid on 25/10/2017.
@@ -64,7 +65,7 @@ public class Client {
                 op2 = op2.replaceAll("\\s", "");
                 String op = "" + operation.charAt(operation.indexOf(op2, op1.length())-1);
 
-                Calculator calculator = new Calculator(name, op1, op, op2);
+                Calculator calculator = new Calculator(name, op1, op, op2, null);
 
                 // Preparamos para el envio
                 String content;
@@ -97,13 +98,13 @@ public class Client {
                 String result = stContent.nextToken();
 
                 if (msgType.equals("xml")) {
-                    // ToDO
-                }
-                else {
-                    Response r = JsonParser.parseResponseJSON(result);
+                    Calculator r = XmlParser.parseXML(result);
                     System.out.println("Resultado: " + r.getResult());
                 }
-
+                else {
+                    Calculator r = JsonParser.parseCalculatorJSON(result);
+                    System.out.println("Resultado: " + r.getResult());
+                }
 
             }
 

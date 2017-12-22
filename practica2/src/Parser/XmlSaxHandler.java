@@ -14,6 +14,7 @@ public class XmlSaxHandler extends DefaultHandler{
     boolean bOp1 = false;
     boolean bOp = false;
     boolean bOp2 = false;
+    boolean bRes = false;
 
     @Override
     public void startElement (String uri, String localName, String qName, Attributes attributes) throws SAXException {
@@ -28,6 +29,8 @@ public class XmlSaxHandler extends DefaultHandler{
             bOp = true;
         if (qName.equalsIgnoreCase("operand2"))
             bOp2 = true;
+        if (qName.equalsIgnoreCase("result"))
+            bRes = true;
     }
 
     @Override
@@ -57,6 +60,11 @@ public class XmlSaxHandler extends DefaultHandler{
             String operand2 = new String(ch, start, length);
             calc.setOperand2(operand2);
             bOp2 = false;
+        }
+        if (bRes) {
+            String result = new String(ch, start, length);
+            calc.setResult(result);
+            bRes = false;
         }
 
     }

@@ -71,6 +71,7 @@ public class PetitionManagerThread extends Thread{
                         break;
                     case "-":
                         answer = operand1 - operand2;
+                        break;
                     case "*":
                         answer = operand1 * operand2;
                         break;
@@ -82,12 +83,12 @@ public class PetitionManagerThread extends Thread{
                 Server.setValorAns(calculator.getUser(), answer);
 
                 // Preparing response
-                Response response = new Response(answer);
+                calculator.setResult(String.valueOf(answer));
                 String payload;
                 if (msgType.equals("xml"))
-                    payload = "xml" + "~" + response.toXml();
+                    payload = "xml" + "~" + calculator.toXML();
                 else
-                    payload = "json" + "~" + response.toJson();
+                    payload = "json" + "~" + calculator.toJSON();
 
                 String send = Integer.toString(payload.length()) + "\n" + payload;
 
