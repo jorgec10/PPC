@@ -37,7 +37,6 @@ public class PetitionManagerThread extends Thread{
                 int msgLength = Integer.valueOf(length);
                 byte[] b = new byte[msgLength];
                 sIn.read(b, 0, Integer.valueOf(msgLength));
-
                 String content = new String(b);
 
                 StringTokenizer stContent = new StringTokenizer(content, "~");
@@ -49,7 +48,7 @@ public class PetitionManagerThread extends Thread{
                 if (msgType.equals("xml"))
                     calculator = XmlParser.parseXML(operation);
                 else
-                    calculator = JsonParser.parseJSON(operation);
+                    calculator = JsonParser.parseCalculatorJSON(operation);
 
                 // Aquí ya hemos recibido el mensaje y lo tenemos en calculator
                 System.out.println(calculator);
@@ -68,12 +67,12 @@ public class PetitionManagerThread extends Thread{
                 double answer = 0;
                 switch (calculator.getOperator()) {
                     case "+":
-                        answer = operand1 + operand1;
+                        answer = operand1 + operand2;
                         break;
                     case "-":
                         answer = operand1 - operand2;
                     case "*":
-                        answer = operand1 * operand1;
+                        answer = operand1 * operand2;
                         break;
                     case "/":
                         answer = operand1 / operand2;
@@ -82,7 +81,18 @@ public class PetitionManagerThread extends Thread{
 
                 Server.setValorAns(calculator.getUser(), answer);
 
-                sOut.println(Double.toString(answer));
+                // Preparing response
+                Response response = new Response(answer);
+                String payload;
+                if (msgType.equals("xml"))
+                    payload = "xml" + "~" + response.toXml();
+                else
+                    payload = "json" + "~" + response.toJson();
+
+                String send = Integer.toString(payload.length()) + "\n" + payload;
+
+                //sOut.println(Double.toString(answer));
+                sOut.write(send.getBytes());
 
                 // Leemos la longitud del proximo mensaje o EXIT
                 length = sIn.readLine();

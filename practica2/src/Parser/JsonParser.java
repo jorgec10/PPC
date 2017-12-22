@@ -11,7 +11,7 @@ import java.io.*;
  */
 public class JsonParser {
 
-    public static Calculator parseJSON(String msg) {
+    public static Calculator parseCalculatorJSON(String msg) {
 
         PrintWriter jsonFile = null;
 
@@ -40,6 +40,14 @@ public class JsonParser {
         Calculator c = gson.fromJson(msg, Calculator.class);
 
         return c;
+
+    }
+
+    public static Response parseResponseJSON (String msg) {
+
+        Gson gson = new Gson();
+        Response r = gson.fromJson(msg, Response.class);
+        return r;
 
     }
 

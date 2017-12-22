@@ -9,6 +9,7 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import Calculator.*;
+import Parser.JsonParser;
 
 /**
  * Created by Jorge Gallego Madrid on 25/10/2017.
@@ -46,9 +47,10 @@ public class Client {
                 operation = scanner.nextLine();
 
                 // Si se introduce "exit" finalizamos
-                if (operation.equals("EXIT")) {
+                if (operation.equals("EXIT") || operation.equals("exit")) {
                     output.writeBytes("EXIT\n");
                     fin = true;
+                    System.out.println("See you soon!");
                     break;
                 }
 
@@ -83,7 +85,20 @@ public class Client {
                 output.write(envio.getBytes());
 
                 // Imprimimos el resultado
-                System.out.println("Resultado: " + input.readLine());
+                //System.out.println("Resultado: " + input.readLine());
+
+                String length = input.readLine();
+                int msgLength = Integer.valueOf(length);
+                byte[] b = new byte[msgLength];
+                input.read(b, 0, Integer.valueOf(msgLength));
+                String response = new String(b);
+
+                StringTokenizer stContent = new StringTokenizer(response, "~");
+                String msgType = stContent.nextToken();
+                String result = stContent.nextToken();
+
+                Response r = JsonParser.parseResponseJSON(result);
+                System.out.println("Resultado: " + r.getResult());
 
             }
 
