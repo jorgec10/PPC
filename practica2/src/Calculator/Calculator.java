@@ -68,6 +68,10 @@ public class Calculator {
         return  user + ": " + operand1 + operator + operand2;
     }
 
+    /**
+     * Return a XML string of the Calculator object
+     * @return XML string
+     */
     public String toXML() {
         return  "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n" +
                 "<calculator>\n" +
@@ -80,6 +84,10 @@ public class Calculator {
 
     }
 
+    /**
+     * Return a JSON string of the Calculator object
+     * @return JSON string
+     */
     public String toJSON() {
         return  "{\n" +
                 "   \"user\":\"" + user + "\",\n" +

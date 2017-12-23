@@ -4,8 +4,10 @@ import java.util.Scanner;
 import java.util.StringTokenizer;
 
 import Calculator.Calculator;
+import Parser.JsonParser;
+import Parser.XmlParser;
 
-public class Utils {
+public class AppUtils {
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -72,6 +74,69 @@ public class Utils {
 
         String content = xmlNoJson ? ("xml" + "~" + calculator.toXML()) : ("json" + "~" + calculator.toJSON());
         return Integer.toString(content.length()) + "\n" + content;
+
+    }
+
+    /**
+     * Parse a response message and create a Calculator object
+     * @param message String message
+     * @return Calculator object
+     */
+    public static Calculator parseResponse (String message) {
+
+        StringTokenizer stContent = new StringTokenizer(message, "~");
+        String msgType = stContent.nextToken();
+        String result = stContent.nextToken();
+
+        Calculator r;
+        if (msgType.equalsIgnoreCase("xml"))
+            r = XmlParser.parseXML(result);
+        else
+            r = JsonParser.parseCalculatorJSON(result);
+
+        return r;
+
+    }
+
+    public static String getMessageType (String message) {
+
+        StringTokenizer stContent = new StringTokenizer(message, "~");
+        String msgType = stContent.nextToken();
+
+        return msgType.equalsIgnoreCase("xml") ? "xml" : "json";
+
+    }
+
+    public static double calculateResult (Calculator calculator) {
+
+        double operand1, operand2;
+        if (calculator.getOperand1().equals("ans"))
+            operand1 = Server.getValueAns(calculator.getUser());
+        else
+            operand1 = Double.valueOf(calculator.getOperand1());
+
+        if (calculator.getOperand2().equals("ans"))
+            operand2 = Server.getValueAns(calculator.getUser());
+        else
+            operand2 = Double.valueOf(calculator.getOperand2());
+
+        double answer = 0;
+        switch (calculator.getOperator()) {
+            case "+":
+                answer = operand1 + operand2;
+                break;
+            case "-":
+                answer = operand1 - operand2;
+                break;
+            case "*":
+                answer = operand1 * operand2;
+                break;
+            case "/":
+                answer = operand1 / operand2;
+                break;
+        }
+
+        return answer;
 
     }
 

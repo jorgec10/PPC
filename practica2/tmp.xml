@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<calculator>
-   <user>Jorge</user>
-   <operand1>ans</operand1>
-   <operator>*</operator>
-   <operand2>3</operand2>
-   <result>6.0</result>
-</calculator>

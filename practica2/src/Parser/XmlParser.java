@@ -17,31 +17,42 @@ import java.io.PrintWriter;
  */
 public class XmlParser {
 
+    private static int fileId = 0;
+
+    /**
+     * Parse a message string in XML to a Calculator object
+     * @param msg XML string
+     * @return Calculator object
+     */
     public static Calculator parseXML(String msg) {
 
         // First we write the msg in a file
         PrintWriter xmlFile = null;
+        String fileName = "./files/" + Integer.toString(fileId) + ".xml";
+
         try {
-            xmlFile = new PrintWriter("./tmp.xml");
+            xmlFile = new PrintWriter(fileName);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         FileWriter writer = null;
         try {
-            writer = new FileWriter("./tmp.xml", false);
+            writer = new FileWriter(fileName, false);
             writer.write(msg);
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+        // Parse the string with SAX
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
 
             SAXParser saxParser = saxParserFactory.newSAXParser();
             XmlSaxHandler handler = new XmlSaxHandler();
-            saxParser.parse("./tmp.xml", handler);
+            saxParser.parse(fileName, handler);
+            fileId++;
             return handler.getCalculator();
 
         } catch (ParserConfigurationException | SAXException | IOException e) {

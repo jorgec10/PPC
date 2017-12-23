@@ -1,17 +1,11 @@
 package App;
 
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 import Calculator.*;
-import Parser.JsonParser;
-import Parser.XmlParser;
-import App.Utils;
 
 /**
  * Created by Jorge Gallego Madrid on 25/10/2017.
@@ -32,7 +26,7 @@ public class Client {
             output = new DataOutputStream(myClient.getOutputStream());
 
             // Read user name
-            String name = Utils.readUserName();
+            String name = AppUtils.readUserName();
 
             // Ask for queries while the client wants to
             while (true) {
@@ -40,10 +34,10 @@ public class Client {
                 //------------------- Sending the query -------------------
 
                 // Ask for the message format of the query
-                boolean xmlNoJson = Utils.askMessageFormat();
+                boolean xmlNoJson = AppUtils.askMessageFormat();
 
                 // Read the query from the user
-                String operation = Utils.readOperation();
+                String operation = AppUtils.readOperation();
 
                 // If the user introduce EXIT, quit the app
                 if (operation.equalsIgnoreCase("EXIT")) {
@@ -53,37 +47,31 @@ public class Client {
                 }
 
                 // Creation of the Calculator object
-                Calculator calculator = Utils.createCalculator(name, operation);
+                Calculator calculator = AppUtils.createCalculator(name, operation);
 
                 // Preparing the message
-                String message = Utils.prepareMessage(xmlNoJson, calculator);
+                String message = AppUtils.prepareMessage(xmlNoJson, calculator);
 
                 // Sending message to the server
                 output.write(message.getBytes());
 
-
                 //------------------- Receiving response -------------------
 
-                // Imprimimos el resultado
+                // Read the length of the message
+                int msgLength = Integer.valueOf(input.readLine());
 
-                String length = input.readLine();
-                int msgLength = Integer.valueOf(length);
+                // Read the message
                 byte[] b = new byte[msgLength];
-                input.read(b, 0, Integer.valueOf(msgLength));
-                String response = new String(b);
+                input.read(b, 0, msgLength);
 
-                StringTokenizer stContent = new StringTokenizer(response, "~");
-                String msgType = stContent.nextToken();
-                String result = stContent.nextToken();
+                // Compose the string of the message
+                String responseMsg = new String(b);
 
-                if (msgType.equals("xml")) {
-                    Calculator r = XmlParser.parseXML(result);
-                    System.out.println("Resultado: " + r.getResult());
-                }
-                else {
-                    Calculator r = JsonParser.parseCalculatorJSON(result);
-                    System.out.println("Resultado: " + r.getResult());
-                }
+                // Parse response
+                Calculator response = AppUtils.parseResponse(responseMsg);
+
+                // Show the client the result
+                System.out.println("Result: " + response.getResult());
 
             }
 

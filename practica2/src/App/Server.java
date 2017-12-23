@@ -11,28 +11,36 @@ import java.util.Map;
  */
 public class Server {
 
-    // HashMap donde se guardarán las asociaciones entre los distintos clientes y el resultado de su última operación.
-    public static Map<String, Double> valoresAns = new HashMap<>();
+    // HashMap to store associations between a client and his last query
+    public static Map<String, Double> valuesAns = new HashMap<>();
 
-    // Método estático para obtener el último resultado de un cliente, si es su primera conexión, se devolverá 0.
-    public static synchronized Double getValorAns (String usuario) {
+    /**
+     * Static method to obtain the last result of a client, given his user name. On the first connection, its 0
+     * @param user user name
+     * @return The value stored
+     */
+    public static synchronized Double getValueAns(String user) {
 
-        Double valor = valoresAns.get(usuario);
-        if (valor == null) return 0.0;
-        else return valor;
+        Double value = valuesAns.get(user);
+        if (value == null) return 0.0;
+        else return value;
 
     }
 
-    // Método para establecer el último resultado de un cliente.
-    public static synchronized void setValorAns (String usuario, Double valor) {
+    /**
+     * Method to set the last result of a client
+     * @param user User name
+     * @param value Value of the result
+     */
+    public static synchronized void setValorAns (String user, Double value) {
 
-        valoresAns.put(usuario, valor);
+        valuesAns.put(user, value);
 
     }
 
     public static void main( String args[] ) {
         ServerSocket s = null;
-        Socket cliente = null;
+        Socket client = null;
 
         // Establecemos el servicio en el puerto 9999
         // No podemos elegir un puerto por debajo del 1023 si no somos
@@ -45,12 +53,12 @@ public class Server {
         // Creamos el objeto desde el cual atenderemos y aceptaremos
         // las conexiones de los clientes y abrimos los canales de
         // comunicación de entrada y salida
-        System.out.println("Servidor ejecutándose. Esperando solicitudes...");
+        System.out.println("Server running. Waiting for queries...");
         while (true) {
             try {
-                cliente = s.accept();
-                System.out.println("Conexion aceptada: " + cliente.getInetAddress() + ":" + cliente.getPort());
-                new PetitionManagerThread(cliente).start();
+                client = s.accept();
+                System.out.println("Conexion accepted: " + client.getInetAddress() + ":" + client.getPort());
+                new PetitionManagerThread(client).start();
             } catch( IOException e ) {
                 System.out.println( e );
             }

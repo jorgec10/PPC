@@ -4,10 +4,8 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.util.StringTokenizer;
 
 import Calculator.*;
-import Parser.*;
 
 /**
  * Created by Jorge Gallego Madrid on 25/10/2017.
@@ -24,78 +22,47 @@ public class PetitionManagerThread extends Thread{
         DataInputStream sIn;
         PrintStream sOut;
         try {
-            // Inicializamos los streams
+            // Start streams
             sIn = new DataInputStream(s.getInputStream() );
             sOut = new PrintStream(s.getOutputStream());
 
-            // Leemos la longitud del mensaje o EXIT
+            // Read message length or EXIT
             String length = sIn.readLine();
 
-            // Aceptamos peticiones hasta que el usuario cierre la conexión
+            // Accept queries until the user closes the connection
             while (!length.equals("EXIT")) {
 
+                // Read message length
                 int msgLength = Integer.valueOf(length);
+
+                // Read message
                 byte[] b = new byte[msgLength];
-                sIn.read(b, 0, Integer.valueOf(msgLength));
+                sIn.read(b, 0, msgLength);
+
+                // Compose the string of the message
                 String content = new String(b);
 
-                StringTokenizer stContent = new StringTokenizer(content, "~");
-                String msgType = stContent.nextToken();
-                String operation = stContent.nextToken();
+                // Parse message
+                Calculator calculator = AppUtils.parseResponse(content);
+                String msgType = AppUtils.getMessageType(content);
 
-                Calculator calculator;
-
-                if (msgType.equals("xml"))
-                    calculator = XmlParser.parseXML(operation);
-                else
-                    calculator = JsonParser.parseCalculatorJSON(operation);
-
-                // Aquí ya hemos recibido el mensaje y lo tenemos en calculator
+                // Print calculator received
                 System.out.println(calculator);
 
-                double operand1, operand2;
-                if (calculator.getOperand1().equals("ans"))
-                    operand1 = Server.getValorAns(calculator.getUser());
-                else
-                    operand1 = Double.valueOf(calculator.getOperand1());
+                // Calculate result of the query
+                double result = AppUtils.calculateResult(calculator);
 
-                if (calculator.getOperand2().equals("ans"))
-                    operand2 = Server.getValorAns(calculator.getUser());
-                else
-                    operand2 = Double.valueOf(calculator.getOperand2());
-
-                double answer = 0;
-                switch (calculator.getOperator()) {
-                    case "+":
-                        answer = operand1 + operand2;
-                        break;
-                    case "-":
-                        answer = operand1 - operand2;
-                        break;
-                    case "*":
-                        answer = operand1 * operand2;
-                        break;
-                    case "/":
-                        answer = operand1 / operand2;
-                        break;
-                }
-
-                Server.setValorAns(calculator.getUser(), answer);
+                // Store the result
+                Server.setValorAns(calculator.getUser(), result);
 
                 // Preparing response
-                calculator.setResult(String.valueOf(answer));
-                String payload;
-                if (msgType.equals("xml"))
-                    payload = "xml" + "~" + calculator.toXML();
-                else
-                    payload = "json" + "~" + calculator.toJSON();
+                calculator.setResult(String.valueOf(result));
+                String send = AppUtils.prepareMessage(msgType.equalsIgnoreCase("xml"), calculator);
 
-                String send = Integer.toString(payload.length()) + "\n" + payload;
-
-                //sOut.println(Double.toString(answer));
+                // Send the response
                 sOut.write(send.getBytes());
 
-                // Leemos la longitud del proximo mensaje o EXIT
+                // Read length of the next query or EXIT
                 length = sIn.readLine();
             }
 
