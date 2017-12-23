@@ -11,79 +11,58 @@ import java.util.StringTokenizer;
 import Calculator.*;
 import Parser.JsonParser;
 import Parser.XmlParser;
+import App.Utils;
 
 /**
  * Created by Jorge Gallego Madrid on 25/10/2017.
  */
 public class Client {
+
+
     public static void main( String args[] ) {
+
         Socket myClient;
         DataInputStream input;
         DataOutputStream output;
+
         try {
-            // Inicializamos el socket y los streams
+            // Start socket and streams
             myClient = new Socket ("localhost", 9999);
             input = new DataInputStream(myClient.getInputStream());
             output = new DataOutputStream(myClient.getOutputStream());
 
-            // Leemos el nombre de usuario
-            Scanner scanner = new Scanner(System.in);
-            String name, operation;
-            System.out.println("Introduzca su nombre de usuario:");
-            name = scanner.nextLine();
-            name.trim();
+            // Read user name
+            String name = Utils.readUserName();
 
-            boolean fin = false;
+            // Ask for queries while the client wants to
+            while (true) {
 
-            boolean xmlNoJson = true;
+                //------------------- Sending the query -------------------
 
-            // Se pueden introducir operaciones hasta que el cliente quiera cerrar la conexión
-            while (!fin) {
+                // Ask for the message format of the query
+                boolean xmlNoJson = Utils.askMessageFormat();
 
-                System.out.println("xml or json?");
-                String answer = scanner.nextLine();
-                xmlNoJson = answer.equals("xml");
+                // Read the query from the user
+                String operation = Utils.readOperation();
 
-                System.out.println("Introduzca la operacion o EXIT para finalizar la conexion:");
-                operation = scanner.nextLine();
-
-                // Si se introduce "exit" finalizamos
-                if (operation.equals("EXIT") || operation.equals("exit")) {
+                // If the user introduce EXIT, quit the app
+                if (operation.equalsIgnoreCase("EXIT")) {
                     output.writeBytes("EXIT\n");
-                    fin = true;
                     System.out.println("See you soon!");
                     break;
                 }
 
-                // Obtenemos la operacion y la enviamos junto con el nombre de usuario
-                operation.trim();
+                // Creation of the Calculator object
+                Calculator calculator = Utils.createCalculator(name, operation);
 
-                StringTokenizer st = new StringTokenizer(operation, "+-*/");
-                String op1 = st.nextToken();
-                op1 = op1.replaceAll("\\s", "");
-                String op2 = st.nextToken();
-                op2 = op2.replaceAll("\\s", "");
-                String op = "" + operation.charAt(operation.indexOf(op2, op1.length())-1);
+                // Preparing the message
+                String message = Utils.prepareMessage(xmlNoJson, calculator);
 
-                Calculator calculator = new Calculator(name, op1, op, op2, null);
+                // Sending message to the server
+                output.write(message.getBytes());
 
-                // Preparamos para el envio
-                String content;
-                int contentLength;
-                String envio;
-                if (xmlNoJson) {
-                    content = "xml" + "~" + calculator.toXML();
-                    contentLength = content.length();
-                    envio = Integer.toString(contentLength) + "\n" + content;
-                }
-                else {
-                    content = "json" + "~" + calculator.toJSON();
-                    contentLength = content.length();
-                    envio = Integer.toString(contentLength) + "\n" + content;
-                }
 
-                // Enviamos
-                output.write(envio.getBytes());
+                //------------------- Receiving response -------------------
 
                 // Imprimimos el resultado
 

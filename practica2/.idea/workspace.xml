@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754e0ab9-46cb-4b28-8cdb-116bdba76081" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/App/Utils.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/practica2/App/Client.class" afterPath="$PROJECT_DIR$/out/production/practica2/App/Client.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica2/App/PetitionManagerThread.class" afterPath="$PROJECT_DIR$/out/production/practica2/App/PetitionManagerThread.class" />
       <change beforePath="$PROJECT_DIR$/out/production/practica2/Calculator/Calculator.class" afterPath="$PROJECT_DIR$/out/production/practica2/Calculator/Calculator.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica2/Calculator/Response.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/out/production/practica2/EsquemaJSON.txt" afterPath="$PROJECT_DIR$/out/production/practica2/EsquemaJSON.txt" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica2/EsquemaXML.txt" afterPath="$PROJECT_DIR$/out/production/practica2/EsquemaXML.txt" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica2/Parser/JsonParser.class" afterPath="$PROJECT_DIR$/out/production/practica2/Parser/JsonParser.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica2/Parser/XmlSaxHandler.class" afterPath="$PROJECT_DIR$/out/production/practica2/Parser/XmlSaxHandler.class" />
       <change beforePath="$PROJECT_DIR$/src/App/Client.java" afterPath="$PROJECT_DIR$/src/App/Client.java" />
-      <change beforePath="$PROJECT_DIR$/src/App/PetitionManagerThread.java" afterPath="$PROJECT_DIR$/src/App/PetitionManagerThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/Calculator/Calculator.java" afterPath="$PROJECT_DIR$/src/Calculator/Calculator.java" />
-      <change beforePath="$PROJECT_DIR$/src/Calculator/Response.java" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/EsquemaJSON.txt" afterPath="$PROJECT_DIR$/src/EsquemaJSON.txt" />
-      <change beforePath="$PROJECT_DIR$/src/EsquemaXML.txt" afterPath="$PROJECT_DIR$/src/EsquemaXML.txt" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/JsonParser.java" afterPath="$PROJECT_DIR$/src/Parser/JsonParser.java" />
-      <change beforePath="$PROJECT_DIR$/src/Parser/XmlSaxHandler.java" afterPath="$PROJECT_DIR$/src/Parser/XmlSaxHandler.java" />
       <change beforePath="$PROJECT_DIR$/tmp.json" afterPath="$PROJECT_DIR$/tmp.json" />
       <change beforePath="$PROJECT_DIR$/tmp.xml" afterPath="$PROJECT_DIR$/tmp.xml" />
     </list>
@@ -41,7 +33,74 @@
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PetitionManagerThread.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App/PetitionManagerThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/App/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="649">
+              <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/App/Utils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1190">
+              <caret line="73" column="67" lean-forward="false" selection-start-line="73" selection-start-column="67" selection-end-line="73" selection-end-column="67" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JsonParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Parser/JsonParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="XmlParser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Parser/XmlParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -76,9 +135,10 @@
         <option value="$PROJECT_DIR$/src/EsquemaJSON.txt" />
         <option value="$PROJECT_DIR$/src/Parser/XmlSaxHandler.java" />
         <option value="$PROJECT_DIR$/src/Parser/JsonParser.java" />
-        <option value="$PROJECT_DIR$/src/App/Client.java" />
         <option value="$PROJECT_DIR$/src/App/PetitionManagerThread.java" />
         <option value="$PROJECT_DIR$/src/Calculator/Calculator.java" />
+        <option value="$PROJECT_DIR$/src/App/Utils.java" />
+        <option value="$PROJECT_DIR$/src/App/Client.java" />
       </list>
     </option>
   </component>
@@ -492,6 +552,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
@@ -529,7 +590,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -554,7 +614,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Server">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -961,8 +1021,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -987,14 +1047,19 @@
       <workItem from="1513960408208" duration="65000" />
       <workItem from="1513960693476" duration="4231000" />
       <workItem from="1513965332903" duration="5366000" />
+      <workItem from="1514023151049" duration="1976000" />
+      <workItem from="1514026400418" duration="566000" />
+      <workItem from="1514026996066" duration="705000" />
+      <workItem from="1514027719852" duration="93000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35578000" />
+    <option name="totallyTimeSpent" value="38918000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1009,9 +1074,8 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1025,6 +1089,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295583" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1062,52 +1127,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Calculator/Calculator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="23" column="29" lean-forward="false" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding>
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-            <element signature="e#645#646#0" expanded="true" />
-            <element signature="e#677#678#0" expanded="true" />
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#743#744#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#831#832#0" expanded="true" />
-            <element signature="e#866#867#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#945#946#0" expanded="true" />
-            <element signature="e#985#986#0" expanded="true" />
-            <element signature="e#1020#1021#0" expanded="true" />
-            <element signature="e#1051#1052#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1139#1140#0" expanded="true" />
-            <element signature="e#1172#1173#0" expanded="true" />
-            <element signature="e#1201#1202#0" expanded="true" />
-            <element signature="e#1245#1246#0" expanded="true" />
-            <element signature="e#1281#1282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="50" column="28" lean-forward="false" selection-start-line="50" selection-start-column="28" selection-end-line="50" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser/XmlSaxHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="59" column="24" lean-forward="true" selection-start-line="59" selection-start-column="24" selection-end-line="59" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2018#2019#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1133,7 +1156,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
           <caret line="105" column="13" lean-forward="false" selection-start-line="105" selection-start-column="13" selection-end-line="105" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1159,7 +1184,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1615">
           <caret line="102" column="13" lean-forward="true" selection-start-line="102" selection-start-column="13" selection-end-line="102" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1175,7 +1202,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1638">
           <caret line="85" column="16" lean-forward="false" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1358,7 +1387,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="968">
           <caret line="48" column="42" lean-forward="true" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1444,7 +1475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="765" column="0" lean-forward="false" selection-start-line="765" selection-start-column="0" selection-end-line="765" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1452,7 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="19" lean-forward="true" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1460,7 +1489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="26" lean-forward="false" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1472,14 +1500,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Calculator/Response.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Calculator/Response.java" />
     <entry file="file://$PROJECT_DIR$/src/App/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -1488,31 +1509,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser/XmlSaxHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser/JsonParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser/XmlSaxHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1991#1992#0" expanded="true" />
-            <element signature="e#2018#2019#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1526,7 +1534,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Calculator/Calculator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1513">
+        <state relative-caret-position="1252">
           <caret line="91" column="1" lean-forward="false" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
           <folding>
             <element signature="e#578#579#0" expanded="true" />
@@ -1555,8 +1563,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/PetitionManagerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="88" column="58" lean-forward="true" selection-start-line="88" selection-start-column="55" selection-end-line="88" selection-end-column="60" />
+        <state relative-caret-position="459">
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/StringTokenizer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="348" column="0" lean-forward="false" selection-start-line="348" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="73" column="67" lean-forward="false" selection-start-line="73" selection-start-column="67" selection-end-line="73" selection-end-column="67" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="649">
+          <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

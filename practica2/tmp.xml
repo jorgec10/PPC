@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <calculator>
    <user>Jorge</user>
-   <operand1>1.5</operand1>
+   <operand1>ans</operand1>
    <operator>*</operator>
-   <operand2>ans</operand2>
-   <result>9.0</result>
+   <operand2>3</operand2>
+   <result>6.0</result>
 </calculator>
