@@ -11,6 +11,16 @@ public class AppUtils {
 
     static Scanner scanner = new Scanner(System.in);
 
+    public static boolean askForSecureConnection () {
+
+        System.out.println("Do you want a secure connection? [y/n]");
+        String s = scanner.nextLine();
+        if (s.equalsIgnoreCase("y"))
+            return true;
+        else
+            return false;
+    }
+
     /**
      * Read and return an username from console
      */

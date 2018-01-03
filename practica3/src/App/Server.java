@@ -1,8 +1,12 @@
 package App;
 
+import javax.net.ssl.*;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.security.*;
+import java.security.cert.CertificateException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,30 +43,55 @@ public class Server {
     }
 
     public static void main( String args[] ) {
-        ServerSocket s = null;
-        Socket client = null;
 
-        // Establecemos el servicio en el puerto 9999
-        // No podemos elegir un puerto por debajo del 1023 si no somos
-        // usuarios con los máximos privilegios (root)
+        // Non secure socket
+        ServerSocket s = null;
+
+        // Secure socket
+        ServerSocket secureSocket = null;
+
+        // Secure socket factory
+        SSLServerSocketFactory serverFactory = null;
+
         try {
-            s = new ServerSocket( 9999 );
-        } catch( IOException e ) {
+
+            // Non secure service on port 9998
+            s = new ServerSocket( 9998 );
+
+            // Secure service on port 8887
+            // Construct KeyManager, which contains server cert and private key
+            KeyStore keyStore = KeyStore.getInstance("JKS");
+            keyStore.load(new FileInputStream("./demoCA/server/server.jks"), "alumno".toCharArray());
+            KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+            kmf.init(keyStore, "alumno".toCharArray());
+            KeyManager[] keyManagers = kmf.getKeyManagers();
+
+            // Construct trustManager, which contains CA cert
+            KeyStore trustedStore = KeyStore.getInstance("JKS");
+            trustedStore.load(new FileInputStream("./demoCA/cakeystore.jks"), "alumno".toCharArray());
+            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init(trustedStore);
+            TrustManager[] trustManagers = tmf.getTrustManagers();
+
+            // Create SSL Context
+            SSLContext sc = SSLContext.getInstance("TLS");
+            sc.init(keyManagers, trustManagers, null);
+
+            // Create secure socket on port 8887
+            serverFactory = sc.getServerSocketFactory();
+            secureSocket = serverFactory.createServerSocket(8887);
+
+        } catch( NoSuchAlgorithmException | KeyStoreException | CertificateException | UnrecoverableKeyException | KeyManagementException | IOException e ) {
             System.out.println( e );
         }
-        // Creamos el objeto desde el cual atenderemos y aceptaremos
-        // las conexiones de los clientes y abrimos los canales de
-        // comunicación de entrada y salida
+
+        // Waiting for client connections
         System.out.println("Server running. Waiting for queries...");
-        while (true) {
-            try {
-                client = s.accept();
-                System.out.println("Conexion accepted: " + client.getInetAddress() + ":" + client.getPort());
-                new PetitionManagerThread(client).start();
-            } catch( IOException e ) {
-                System.out.println( e );
-            }
-        }
+
+        // Launch both threads to accept connections simultaneously
+        new NonSecureServerThread(s).start();
+        new SecureServerThread(secureSocket).start();
+
     }
 
 }
