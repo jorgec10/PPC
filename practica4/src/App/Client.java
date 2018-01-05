@@ -1,5 +1,8 @@
 package App;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 import javax.mail.*;
@@ -15,6 +18,35 @@ public class Client {
 
 
     public static void main( String args[] ) {
+
+        // Mail credentials
+        String usermail = "cliente.p4.ppc@gmail.com";
+        String servermail = "servidor.p4.ppc@gmail.com";
+        String mailpwd = "alumnoppc";
+
+        // SMPT se
+        Properties smtpprops = new Properties();
+        smtpprops.put("mail.smtp.auth", "true");
+        smtpprops.put("mail.smtp.starttls.enable", "true");
+        smtpprops.put("mail.smtp.host", "smtp.gmail.com");
+        smtpprops.put("mail.smtp.port", "587");
+        Session session = Session.getInstance(smtpprops,
+                new Authenticator() {
+                    @Override
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(usermail, mailpwd);
+                    }
+                });
+
+        // IMAP session to retrieve mails
+        Properties imapprops = new Properties();
+        try {
+            imapprops.load(new FileInputStream(new File("./imap.properties")));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Session imapSession = Session.getDefaultInstance(imapprops, null);
+
 
         // Read user name
         String name = AppUtils.readUserName();
@@ -45,30 +77,17 @@ public class Client {
 
             // Sending message to the server
 
-            String usermail = "cliente.p4.ppc@gmail.com";
-            String mailpwd = "alumnoppc";
-            String servermail = "servidor.p4.ppc@gmail.com";
 
-            Properties props = new Properties();
-            props.put("mail.smtp.auth", "true");
-            props.put("mail.smtp.starttls.enable", "true");
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            props.put("mail.smtp.port", "587");
-
-            Session session = Session.getInstance(props,
-                    new Authenticator() {
-                        @Override
-                        protected PasswordAuthentication getPasswordAuthentication() {
-                            return new PasswordAuthentication(usermail, mailpwd);
-                        }
-                    });
 
             try {
 
                 Message mail = new MimeMessage(session);
                 mail.setFrom(new InternetAddress(usermail));
-                mail.setRecipients(Message.RecipientType.TO, InternetAddress.parse("joaquin.maria.gallego.ruiz@gmail.com"));
-                mail.setSubject(name);
+                mail.setRecipients(Message.RecipientType.TO, InternetAddress.parse(servermail));
+                if (xmlNoJson)
+                    mail.setSubject("xml");
+                else
+                    mail.setSubject("json");
                 mail.setText(message);
 
                 Transport.send(mail);

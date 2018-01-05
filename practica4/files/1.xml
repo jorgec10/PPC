@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<calculator>
+   <user>Pepe</user>
+   <operand1>2</operand1>
+   <operator>/</operator>
+   <operand2>ans</operand2>
+   <result>null</result>
+</calculator>

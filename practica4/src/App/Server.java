@@ -1,8 +1,5 @@
 package App;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,30 +36,32 @@ public class Server {
     }
 
     public static void main( String args[] ) {
-        ServerSocket s = null;
-        Socket client = null;
 
-        // Establecemos el servicio en el puerto 9999
-        // No podemos elegir un puerto por debajo del 1023 si no somos
-        // usuarios con los máximos privilegios (root)
-        try {
-            s = new ServerSocket( 9999 );
-        } catch( IOException e ) {
-            System.out.println( e );
-        }
-        // Creamos el objeto desde el cual atenderemos y aceptaremos
-        // las conexiones de los clientes y abrimos los canales de
-        // comunicación de entrada y salida
         System.out.println("Server running. Waiting for queries...");
-        while (true) {
-            try {
-                client = s.accept();
-                System.out.println("Conexion accepted: " + client.getInetAddress() + ":" + client.getPort());
-                new PetitionManagerThread(client).start();
-            } catch( IOException e ) {
-                System.out.println( e );
-            }
-        }
+        new PetitionManagerThread().start();
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

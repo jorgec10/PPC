@@ -72,27 +72,23 @@ public class AppUtils {
      */
     public static String prepareMessage (boolean xmlNoJson, Calculator calculator) {
 
-        String content = xmlNoJson ? ("xml" + "~" + calculator.toXML()) : ("json" + "~" + calculator.toJSON());
-        return Integer.toString(content.length()) + "\n" + content;
+        return xmlNoJson ? (calculator.toXML()) : (calculator.toJSON());
 
     }
 
     /**
      * Parse a response message and create a Calculator object
      * @param message String message
+     * @param msgType Message type
      * @return Calculator object
      */
-    public static Calculator parseResponse (String message) {
-
-        StringTokenizer stContent = new StringTokenizer(message, "~");
-        String msgType = stContent.nextToken();
-        String result = stContent.nextToken();
+    public static Calculator parseResponse (String message, String msgType) {
 
         Calculator r;
         if (msgType.equalsIgnoreCase("xml"))
-            r = XmlParser.parseXML(result);
+            r = XmlParser.parseXML(message);
         else
-            r = JsonParser.parseCalculatorJSON(result);
+            r = JsonParser.parseCalculatorJSON(message);
 
         return r;
 
