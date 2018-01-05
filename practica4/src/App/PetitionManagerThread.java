@@ -91,7 +91,10 @@ public class PetitionManagerThread extends Thread{
                         // Compose response mail
                         Message mail = new MimeMessage(session);
                         mail.setFrom(new InternetAddress(servermail));
-                        mail.setRecipients(Message.RecipientType.TO, InternetAddress.parse(clientmail));
+
+                        // To the origin
+                        String destination = message.getFrom()[0].toString();
+                        mail.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destination));
 
                         // Set subject
                         if (msgType.equalsIgnoreCase("xml"))

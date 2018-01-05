@@ -8,6 +8,7 @@ import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.mail.search.FlagTerm;
 
 import Calculator.*;
 
@@ -24,7 +25,7 @@ public class Client {
         String servermail = "servidor.p4.ppc@gmail.com";
         String mailpwd = "alumnoppc";
 
-        // SMPT se
+        // SMPT session to send mails
         Properties smtpprops = new Properties();
         smtpprops.put("mail.smtp.auth", "true");
         smtpprops.put("mail.smtp.starttls.enable", "true");
@@ -76,47 +77,79 @@ public class Client {
             String message = AppUtils.prepareMessage(xmlNoJson, calculator);
 
             // Sending message to the server
-
-
-
             try {
 
+                // Compose query mail
                 Message mail = new MimeMessage(session);
                 mail.setFrom(new InternetAddress(usermail));
                 mail.setRecipients(Message.RecipientType.TO, InternetAddress.parse(servermail));
+
+                // Set subject
                 if (xmlNoJson)
                     mail.setSubject("xml");
                 else
                     mail.setSubject("json");
+
+                // Set body
                 mail.setText(message);
 
+                // Send mail
                 Transport.send(mail);
 
-                System.out.println("Mail sent");
+                //------------------- Receiving response -------------------
 
-            } catch (MessagingException e) {
+
+                // Wait response
+                while (true) {
+
+                    Store store = imapSession.getStore("imaps");
+                    store.connect("smtp.gmail.com", usermail, mailpwd);
+                    Folder inbox = store.getFolder("inbox");
+                    inbox.open(Folder.READ_WRITE);
+
+                    // Open inbox with write perms
+                    if (inbox.getUnreadMessageCount() > 0) {
+
+                        // Get unread messages
+                        Message [] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+
+                        // Get responses of the queries
+                        for (Message m : messages) {
+
+                            // Get the body
+                            String content = (String) m.getContent();
+
+                            // Get msg type
+                            String msgType = m.getSubject();
+
+                            // Parse body
+                            Calculator response = AppUtils.parseResponse(content, msgType);
+
+                            // Show result
+                            System.out.println("Result: " + response.getOperand1() +
+                                    response.getOperator() + response.getOperand2() +
+                                    "= " + response.getResult());
+
+                        }
+
+                        // Close connection
+                        inbox.close(true);
+                        store.close();
+                        break;
+                    }
+
+                    // Close connection
+                    inbox.close(true);
+                    store.close();
+
+
+                }
+
+
+            } catch (MessagingException | IOException e) {
                 e.printStackTrace();
             }
 
-/*
-            //------------------- Receiving response -------------------
-
-            // Read the length of the message
-            int msgLength = Integer.valueOf(input.readLine());
-
-            // Read the message
-            byte[] b = new byte[msgLength];
-            input.read(b, 0, msgLength);
-
-            // Compose the string of the message
-            String responseMsg = new String(b);
-
-            // Parse response
-            Calculator response = AppUtils.parseResponse(responseMsg);
-
-            // Show the client the result
-            System.out.println("Result: " + response.getResult());
-*/
 
         }
 

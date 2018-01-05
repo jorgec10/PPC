@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1bf81b2-494c-43ca-bbfc-bbf2b05e7b76" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/imap.properties" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica4/App/AppUtils.class" afterPath="$PROJECT_DIR$/out/production/practica4/App/AppUtils.class" />
+      <change beforePath="$PROJECT_DIR$/files/0.json" afterPath="$PROJECT_DIR$/files/0.json" />
+      <change beforePath="$PROJECT_DIR$/files/0.xml" afterPath="$PROJECT_DIR$/files/0.xml" />
+      <change beforePath="$PROJECT_DIR$/files/1.json" afterPath="$PROJECT_DIR$/files/1.json" />
+      <change beforePath="$PROJECT_DIR$/files/2.json" afterPath="$PROJECT_DIR$/files/2.json" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica4/App/Client$1.class" afterPath="$PROJECT_DIR$/out/production/practica4/App/Client$1.class" />
       <change beforePath="$PROJECT_DIR$/out/production/practica4/App/Client.class" afterPath="$PROJECT_DIR$/out/production/practica4/App/Client.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica4/App/PetitionManagerThread.class" afterPath="$PROJECT_DIR$/out/production/practica4/App/PetitionManagerThread.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/practica4/App/Server.class" afterPath="$PROJECT_DIR$/out/production/practica4/App/Server.class" />
-      <change beforePath="$PROJECT_DIR$/src/App/AppUtils.java" afterPath="$PROJECT_DIR$/src/App/AppUtils.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica4/App/PetitionManagerThread$1.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/out/production/practica4/App/PetitionManagerThread.class" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/App/Client.java" afterPath="$PROJECT_DIR$/src/App/Client.java" />
       <change beforePath="$PROJECT_DIR$/src/App/PetitionManagerThread.java" afterPath="$PROJECT_DIR$/src/App/PetitionManagerThread.java" />
-      <change beforePath="$PROJECT_DIR$/src/App/Server.java" afterPath="$PROJECT_DIR$/src/App/Server.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,8 +39,8 @@
       <file leaf-file-name="PetitionManagerThread.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App/PetitionManagerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-136">
-              <caret line="32" column="19" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="34" selection-end-column="78" />
+            <state relative-caret-position="408">
+              <caret line="94" column="40" lean-forward="false" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
               <folding>
                 <element signature="e#1325#1599#0" expanded="true" />
                 <element signature="e#1598#1599#0" expanded="true" />
@@ -51,12 +52,12 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/App/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+            <state relative-caret-position="402">
+              <caret line="130" column="37" lean-forward="false" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#918#1170#0" expanded="true" />
-                <element signature="e#1169#1170#0" expanded="true" />
+                <element signature="e#972#1224#0" expanded="true" />
+                <element signature="e#1223#1224#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -88,8 +89,8 @@
         <option value="$PROJECT_DIR$/smtp.properties" />
         <option value="$PROJECT_DIR$/src/App/Server.java" />
         <option value="$PROJECT_DIR$/src/App/AppUtils.java" />
-        <option value="$PROJECT_DIR$/src/App/PetitionManagerThread.java" />
         <option value="$PROJECT_DIR$/src/App/Client.java" />
+        <option value="$PROJECT_DIR$/src/App/PetitionManagerThread.java" />
       </list>
     </option>
   </component>
@@ -313,8 +314,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Server" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Client" />
       </list>
     </recent_temporary>
   </component>
@@ -333,16 +334,15 @@
       <updated>1515003881914</updated>
       <workItem from="1515003883936" duration="374000" />
       <workItem from="1515088767480" duration="3664000" />
-      <workItem from="1515149961717" duration="10603000" />
+      <workItem from="1515149961717" duration="14856000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14641000" />
+    <option name="totallyTimeSpent" value="18894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -353,7 +353,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.252386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.252386" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -401,8 +401,8 @@
           <caret line="69" column="120" lean-forward="false" selection-start-line="69" selection-start-column="120" selection-end-line="69" selection-end-column="120" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#918#1170#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
+            <element signature="e#972#1224#0" expanded="true" />
+            <element signature="e#1223#1224#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -451,20 +451,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
-          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="402">
+          <caret line="130" column="37" lean-forward="false" selection-start-line="130" selection-start-column="37" selection-end-line="130" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#918#1170#0" expanded="true" />
-            <element signature="e#1169#1170#0" expanded="true" />
+            <element signature="e#972#1224#0" expanded="true" />
+            <element signature="e#1223#1224#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/App/PetitionManagerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-136">
-          <caret line="32" column="19" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="34" selection-end-column="78" />
+        <state relative-caret-position="408">
+          <caret line="94" column="40" lean-forward="false" selection-start-line="94" selection-start-column="40" selection-end-line="94" selection-end-column="40" />
           <folding>
             <element signature="e#1325#1599#0" expanded="true" />
             <element signature="e#1598#1599#0" expanded="true" />
