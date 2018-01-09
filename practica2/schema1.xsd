@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="calculator">
+    <xs:sequence>
+      <xs:element name="operand1" type="xs:string" minOccurs="0"/>
+      <xs:element name="operand2" type="xs:string" minOccurs="0"/>
+      <xs:element name="operator" type="xs:string" minOccurs="0"/>
+      <xs:element name="result" type="xs:string" minOccurs="0"/>
+      <xs:element name="user" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

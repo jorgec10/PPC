@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <calculator>
     <user>String</user>
@@ -7,3 +7,11 @@
     <operand2>String</operand2>
     <result>String</result>
 </calculator>
+
+<xsd:sequence>
+            <xsd:element name="user" type="xsd:string"/>
+            <xsd:element name="operand1" type="xsd:string"/>
+            <xsd:element name="operator" type="xsd:string"/>
+            <xsd:element name="operand2" type="xsd:string"/>
+            <xsd:element name="result" type="xsd:string"/>
+        </xsd:sequence>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<calculator>
+   <user>Jorge</user>
+   <operand1>0.234534</operand1>
+   <operator>*</operator>
+   <operand2>0.1435</operand2>
+   <result>0.033655629</result>
+</calculator>

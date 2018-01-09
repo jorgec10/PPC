@@ -1,7 +1,7 @@
 {
    "user":"Jorge",
-   "operand1":"ans",
+   "operand1":"1",
    "operator":"+",
-   "operand2":"2",
-   "result":"3.0"
+   "operand2":"1",
+   "result":"2.0"
 }

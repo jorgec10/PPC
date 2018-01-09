@@ -1,9 +1,7 @@
-<?xml version="1.0"?>
-
-<calculator>
-    <user>String</user>
-    <operand1>String</operand1>
-    <operator>String</operator>
-    <operand2>String</operand2>
-    <result>String</result>
-</calculator>
+{
+"user":"String",
+"operand1":"String",
+"operator":"String",
+"operand2":"String",
+"result":"String"
+}

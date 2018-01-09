@@ -3,6 +3,6 @@
    <user>Jorge</user>
    <operand1>ans</operand1>
    <operator>+</operator>
-   <operand2>1</operand2>
-   <result>1.0</result>
+   <operand2>2</operand2>
+   <result>4.0</result>
 </calculator>
